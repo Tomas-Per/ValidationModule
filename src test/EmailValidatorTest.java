@@ -7,31 +7,31 @@ public class EmailValidatorTest {
 
     @Test
     void testForAtSymbol_hasValidAtSymbol() {
-        assertTrue(emailValidator.checkForAtSymbol("tom@gmail.com"));
+        assertTrue(emailValidator.validateEmail("tom@gmail.com"));
     }
 
     @Test
     void testForAtSymbol_noValidAtSymbol() {
-        assertFalse(emailValidator.checkForAtSymbol("tomgmail.com"));
+        assertFalse(emailValidator.validateEmail("tomgmail.com"));
     }
 
     @Test
     void testForIllegalSymbols_hasIllegalSymbols() {
-        assertFalse(emailValidator.checkForIllegalSymbols("tom!@gmail.com"));
+        assertFalse(emailValidator.validateEmail("tom!@gmail.com"));
     }
 
     @Test
     void testForIllegalSymbols_noIllegalSymbols() {
-        assertTrue(emailValidator.checkForIllegalSymbols("tom@gmail.com"));
+        assertTrue(emailValidator.validateEmail("tom@gmail.com"));
     }
 
     @Test
     void testForDomainAndTLD_validDomainAndTLD() {
-        assertTrue(emailValidator.checkDomainAndTLD("tom@gmail.com"));
+        assertTrue(emailValidator.validateEmail("tom@gmail.com"));
     }
 
     @Test
     void testForDomainAndTLD_invalidDomainAndTLD() {
-        assertFalse(emailValidator.checkDomainAndTLD("tom@a.a"));
+        assertFalse(emailValidator.validateEmail("tom@a.a"));
     }
 }

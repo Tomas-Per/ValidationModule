@@ -7,17 +7,17 @@ public class PhoneValidatorTest {
 
     @Test
     void testPhoneNumberForIllegalSymbols_hasIllegalSymbols() {
-        assertFalse(phoneValidator.checkPhoneNumberForIllegalSymbols("+37060!87942"));
+        assertFalse(phoneValidator.validatePhoneNumber("+37060!87942"));
     }
 
     @Test
     void testPhoneNumberForIllegalSymbols_noIllegalSymbols() {
-        assertTrue(phoneValidator.checkPhoneNumberForIllegalSymbols("+37060487942"));
+        assertTrue(phoneValidator.validatePhoneNumber("+37060487942"));
     }
 
     @Test
     void testPhoneNumberChangeForNationalPrefix() {
-        assertEquals("+37060487942", phoneValidator.changePhoneNumberNationalPrefix("860487942"));
+        assertEquals("+37060487942", phoneValidator.changePhoneNumber("860487942"));
     }
 
     @Test

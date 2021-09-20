@@ -1,14 +1,14 @@
 public class PhoneValidator {
 
-    public boolean checkPhoneNumberForIllegalSymbols(String phoneNumber) {
+    public boolean validatePhoneNumber(String phoneNumber) {
         return false;
     }
 
-    public String changePhoneNumberNationalPrefix(String phoneNumber) {
+    public String changePhoneNumber(String phoneNumber) {
         return phoneNumber;
     }
 
-    public boolean addNewValidationRule(String prefix, int length, String countryAbbreviaton) {
+    public boolean addNewValidationRule(String prefix, int length, String countryAbbreviation) {
         return false;
     }
 }

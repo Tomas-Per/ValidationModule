@@ -7,31 +7,31 @@ public class PasswordCheckerTest {
 
     @Test
     void testPasswordLength_validLength() {
-        assertTrue(passwordChecker.checkPasswordLength("password", 8));
+        assertTrue(passwordChecker.checkPassword("password", 8));
     }
 
     @Test
     void testPasswordLength_invalidLength() {
-        assertFalse(passwordChecker.checkPasswordLength("pass", 8));
+        assertFalse(passwordChecker.checkPassword("pass", 8));
     }
 
     @Test
     void testPasswordForUppercase_hasUppercase() {
-        assertTrue(passwordChecker.checkPasswordForUppercase("pAssword123"));
+        assertTrue(passwordChecker.checkPassword("pAssword123", 8));
     }
 
     @Test
     void testPasswordForUppercase_noUppercase() {
-        assertFalse(passwordChecker.checkPasswordForUppercase("password123"));
+        assertFalse(passwordChecker.checkPassword("password123", 8));
     }
 
     @Test
     void testPasswordForSpecialSymbols_noSpecialSymbols() {
-        assertFalse(passwordChecker.checkPasswordForSpecialSymbols("password"));
+        assertFalse(passwordChecker.checkPassword("password", 8));
     }
 
     @Test
     void testPasswordForSpecialSymbols_hasSpecialSymbols() {
-        assertTrue(passwordChecker.checkPasswordForSpecialSymbols("password!"));
+        assertTrue(passwordChecker.checkPassword("password!", 8));
     }
 }
