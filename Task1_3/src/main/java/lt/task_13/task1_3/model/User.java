@@ -5,6 +5,20 @@ import javax.persistence.*;
 @Entity
 public class User {
 
+    public User() {
+
+    }
+
+    public User(int id, String name, String surname, String phoneNumber, String email, String adress, String password) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.adress = adress;
+        this.password = password;
+    }
+
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
