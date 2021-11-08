@@ -6,6 +6,7 @@ import lt.task_13.task1_3.exceptions.BadPhoneNumberException;
 import lt.task_13.task1_3.model.User;
 import lt.task_13.task1_3.repositories.UserRepository;
 import lt.task_13.task1_3.services.UserService;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -16,8 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -64,7 +64,7 @@ public class UserServiceTest {
         try {
             usr = userService.add(user);
         } catch (BadEmailException | BadPasswordException | BadPhoneNumberException e) {
-           return;
+            fail();
         }
         verify(userRepository).save(Mockito.any(User.class));
         assertNotNull(usr);
@@ -85,7 +85,7 @@ public class UserServiceTest {
         try {
             usr = userService.update(user, Mockito.anyInt());
         } catch (BadEmailException | BadPasswordException | BadPhoneNumberException e) {
-            return;
+            fail();
         }
 
         verify(userRepository).save(Mockito.any(User.class));
