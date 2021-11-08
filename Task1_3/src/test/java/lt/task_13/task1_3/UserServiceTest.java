@@ -87,7 +87,7 @@ public class UserServiceTest {
         } catch (BadEmailException | BadPasswordException | BadPhoneNumberException e) {
             return;
         }
-        
+
         verify(userRepository).save(Mockito.any(User.class));
     }
 }
