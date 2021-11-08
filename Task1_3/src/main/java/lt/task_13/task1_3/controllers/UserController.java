@@ -45,9 +45,10 @@ public class UserController {
             return "add-user";
         }
 
+        User newUser;
 
         try {
-            userService.add(user);
+            newUser = userService.add(user);
         } catch (BadPasswordException e) {
             return "error-password";
         } catch (BadEmailException e) {
@@ -56,7 +57,7 @@ public class UserController {
             return "error-phone";
         }
 
-        return "redirect:/users";
+        return "redirect:/user/" + newUser.getId();
     }
 
     @GetMapping("/delete-user/{id}")
@@ -80,8 +81,10 @@ public class UserController {
             return "add-user";
         }
 
+        User updated;
+
         try {
-            userService.update(user, id);
+            updated = userService.update(user, id);
         } catch (BadPasswordException e) {
             return "error-password";
         } catch (BadEmailException e) {
@@ -90,7 +93,7 @@ public class UserController {
             return "error-phone";
         }
 
-        return "redirect:/users";
+        return "redirect:/user/" + updated.getId();
     }
 
     @GetMapping("/find")
@@ -108,8 +111,6 @@ public class UserController {
         if(result.hasErrors()) {
             return "find";
         }
-
-
 
         return "redirect:/user/" + user.getId();
     }
